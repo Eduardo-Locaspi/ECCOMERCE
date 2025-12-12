@@ -1,6 +1,6 @@
-### ESTÁGIO 1: Build com Maven​
+### ESTÁGIO 1: Build com Maven
 
-# Usa uma imagem com Maven e JDK para compilar a aplicação​
+# Usa uma imagem com Maven e JDK para compilar a aplicação
 
 FROM maven:3.9-eclipse-temurin-21 AS build
 
@@ -12,9 +12,9 @@ WORKDIR /app
 
 
 
-# Otimização de Cache: Copia os arquivos de configuração do projeto,​
+# Otimização de Cache: Copia os arquivos de configuração do projeto,
 
-# especificando que eles estão dentro da pasta 'code-with-quarkus'.​
+# especificando que eles estão dentro da pasta 'code-with-quarkus'.
 
 COPY code-with-quarkus/pom.xml .
 
