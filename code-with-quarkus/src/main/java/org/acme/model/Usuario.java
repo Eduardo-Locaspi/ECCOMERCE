@@ -12,6 +12,14 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(long id_usuario, String nm_usuario, String cpf_usuario, char sx_usuario, LocalDate dt_nascimento_usuario) {
+        this.id_usuario = id_usuario;
+        this.nm_usuario = nm_usuario;
+        this.cpf_usuario = cpf_usuario;
+        this.sx_usuario = sx_usuario;
+        this.dt_nascimento_usuario = dt_nascimento_usuario;
+    }
+
     public long getId_usuario() {
         return id_usuario;
     }
