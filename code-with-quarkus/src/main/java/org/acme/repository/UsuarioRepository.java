@@ -3,13 +3,11 @@ package org.acme.repository;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.acme.model.DTO.DTO_Usuario;
 import org.acme.model.Usuario;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,8 +74,25 @@ public class UsuarioRepository {
     }
 
     // POST ( criar um usuario )
+    public boolean criarUsuario(DTO_Usuario user) throws SQLException{
+        sql= "INSERT INTO T_ECCOMERCE_CONTA_USUARIO(nm_usuario, cpf_usuario, sx_usuario, dt_nascimento) VALUES (?,?,?,?)";
+        int linhasAfetadas;
+
+        try(Connection con = dataSource.getConnection();PreparedStatement pst = con.prepareStatement(sql)){
+            pst.setString(1,user.getNm_usuario());
+            pst.setString(2, user.getCpf_usuario());
+            pst.setString(3,String.valueOf(user.getSx_usuario()));
+            pst.setDate(3,java.sql.Date.valueOf(user.getDt_nascimento_usuario()));
+
+            linhasAfetadas= pst.executeUpdate();
+        }
+        return linhasAfetadas>0;
+    }
 
     // PUT ( alterar dados de um usuario por id)
 
     // DELETE ( deletar um usuario por id)
+    public boolean deletarUsuario (int id){
+
+    }
 }
