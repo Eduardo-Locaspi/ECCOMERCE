@@ -90,8 +90,21 @@ public class UsuarioRepository {
 }
 
 // PUT ( alterar dados de um usuario por id)
-    public boolean alterarUsuario(Usuario user){
-        sql = "UPDATE"
+    public boolean alterarUsuario(Usuario user) throws SQLException{
+        sql = "UPDATE T_ECCOMERCE_CONTA_USUARIO SET nm_usuario=? , cpf_usuario=? , sx_usuario=? , dt_nascimento=? WHERE id_usuario=?";
+        int linhasAfetadas;
+
+        try(Connection con = dataSource.getConnection();PreparedStatement pst = con.prepareStatement(sql)){
+            pst.setString(1,user.getNm_usuario());
+            pst.setString(2, user.getCpf_usuario());
+            pst.setString(3,String.valueOf(user.getSx_usuario()));
+            pst.setDate(3,java.sql.Date.valueOf(user.getDt_nascimento_usuario()));
+
+            pst.setLong(5,user.getId_usuario());
+
+            linhasAfetadas= pst.executeUpdate();
+        }
+        return linhasAfetadas>0;
     }
 
 // DELETE ( deletar um usuario por id)
