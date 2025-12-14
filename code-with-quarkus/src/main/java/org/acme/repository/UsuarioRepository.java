@@ -84,15 +84,27 @@ public class UsuarioRepository {
             pst.setString(3,String.valueOf(user.getSx_usuario()));
             pst.setDate(3,java.sql.Date.valueOf(user.getDt_nascimento_usuario()));
 
+        linhasAfetadas= pst.executeUpdate();
+    }
+        return linhasAfetadas>0;
+}
+
+// PUT ( alterar dados de um usuario por id)
+    public boolean alterarUsuario(Usuario user){
+        sql = "UPDATE"
+    }
+
+// DELETE ( deletar um usuario por id)
+    public boolean deletarUsuario (int id)throws SQLException{
+        sql= "DELETE FROM T_ECCOMERCE_CONTA_USUARIO WHERE id=?";
+        int linhasAfetadas;
+
+        try(Connection con = dataSource.getConnection();PreparedStatement pst = con.prepareStatement(sql)){
+            pst.setInt(1,id);
+
             linhasAfetadas= pst.executeUpdate();
         }
-        return linhasAfetadas>0;
-    }
-
-    // PUT ( alterar dados de um usuario por id)
-
-    // DELETE ( deletar um usuario por id)
-    public boolean deletarUsuario (int id){
-
-    }
+            return linhasAfetadas>0;
+        }
 }
+
