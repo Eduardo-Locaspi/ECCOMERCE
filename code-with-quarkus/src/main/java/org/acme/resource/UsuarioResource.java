@@ -20,7 +20,12 @@ public class UsuarioResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response listarUsuario(){
 
+
+
         try{
+            if (usuarioService.listarUsuarios().isEmpty()){
+                return Response.noContent().entity("Não há usuarios no Banco de Dados").build();
+            }
             return Response.ok(usuarioService.listarUsuarios()).build();
         }catch (SQLException e){
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Erro de Banco de Dados").build();

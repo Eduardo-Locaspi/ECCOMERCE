@@ -19,7 +19,7 @@ public class UsuarioRepository {
     DataSource dataSource;
 
     // GET ( de todos os usuarios)
-    public List<Usuario> todosUsuarios()throws SQLException {
+    public List<Usuario> todosUsuarios() throws SQLException {
         sql = "SELECT id_usuario, nm_usuario, cpf_usuario, sx_usuario, dt_nascimento FROM T_ECCOMERCE_CONTA_USUARIO";
         List<Usuario> listaDeUsuarios = new ArrayList<>();
 
@@ -40,10 +40,6 @@ public class UsuarioRepository {
             }
             return listaDeUsuarios;
         }
-
-
-
-
     }
 
     // GET ( de apenas um usuario por id)
