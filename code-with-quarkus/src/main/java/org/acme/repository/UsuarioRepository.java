@@ -89,7 +89,7 @@ public class UsuarioRepository {
         return linhasAfetadas>0;
 }
 
-// PUT ( alterar dados de um usuario por id)
+    // PUT ( alterar dados de um usuario por id)
     public boolean alterarUsuario(Usuario user) throws SQLException{
         sql = "UPDATE T_ECCOMERCE_CONTA_USUARIO SET nm_usuario=? , cpf_usuario=? , sx_usuario=? , dt_nascimento=? WHERE id_usuario=?";
         int linhasAfetadas;
@@ -107,7 +107,7 @@ public class UsuarioRepository {
         return linhasAfetadas>0;
     }
 
-// DELETE ( deletar um usuario por id)
+    // DELETE ( deletar um usuario por id)
     public boolean deletarUsuario (int id)throws SQLException{
         sql= "DELETE FROM T_ECCOMERCE_CONTA_USUARIO WHERE id=?";
         int linhasAfetadas;
@@ -118,6 +118,6 @@ public class UsuarioRepository {
             linhasAfetadas= pst.executeUpdate();
         }
             return linhasAfetadas>0;
-        }
+    }
 }
 
