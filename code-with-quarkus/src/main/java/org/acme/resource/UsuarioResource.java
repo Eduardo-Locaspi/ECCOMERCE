@@ -28,7 +28,7 @@ public class UsuarioResource {
     }
 
     @GET
-    @Path("/buscar-user/{id}")
+    @Path("buscar-user/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response buscarUsuarioPorId(@PathParam("id") int id){
 
