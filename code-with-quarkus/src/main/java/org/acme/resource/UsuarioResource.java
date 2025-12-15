@@ -10,7 +10,7 @@ import org.acme.service.UsuarioService;
 
 import java.sql.SQLException;
 
-@Path("user")
+@Path("/user")
 public class UsuarioResource {
 
     @Inject
