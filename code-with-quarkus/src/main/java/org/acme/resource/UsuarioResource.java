@@ -11,7 +11,7 @@ import org.acme.service.UsuarioService;
 
 import java.sql.SQLException;
 
-@Path("/user")
+@Path("user")
 public class UsuarioResource {
 
     @Inject
@@ -28,7 +28,7 @@ public class UsuarioResource {
     }
 
     @GET
-    @Path("/user/{id}")
+    @Path("/buscar-user/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response buscarUsuarioPorId(@PathParam("id") int id){
 
