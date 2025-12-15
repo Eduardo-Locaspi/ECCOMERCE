@@ -20,4 +20,15 @@ public class UsuarioService {
         return usuarioRepository.todosUsuarios();
     }
 
+    public Usuario buscarUsuarioPorId(int id) throws SQLException,IllegalArgumentException{
+        Usuario user;
+        user = usuarioRepository.usuarioEspecifico(id);
+
+        if (user == null) {
+            throw new IllegalArgumentException();
+        }
+
+        return user;
+    }
+
 }
