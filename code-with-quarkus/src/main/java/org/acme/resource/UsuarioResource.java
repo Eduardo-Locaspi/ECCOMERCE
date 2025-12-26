@@ -30,14 +30,14 @@ public class UsuarioResource {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buscarUsuarioPorId(@PathParam("id") int id){
+    public Response buscarUsuarioPorId(@PathParam("id") long id){
 
         try{
             return Response.ok(usuarioService.buscarUsuarioPorId(id)).build();
         }catch (SQLException e){
             return Response.serverError().entity("Erro de Banco de Dados").build();
         } catch (IllegalArgumentException e) {
-            return Response.noContent().entity("id inexistente").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("Usuario não encontrado").build();
         }
     }
 }

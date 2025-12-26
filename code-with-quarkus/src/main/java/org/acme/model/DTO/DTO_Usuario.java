@@ -9,6 +9,9 @@ public class DTO_Usuario {
     private char sx_usuario;
     private LocalDate dt_nascimento_usuario;
 
+    public DTO_Usuario() {
+    }
+
     public DTO_Usuario(String nm_usuario, String cpf_usuario, char sx_usuario, LocalDate dt_nascimento_usuario) {
         this.nm_usuario = nm_usuario;
         this.cpf_usuario = cpf_usuario;

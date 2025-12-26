@@ -20,7 +20,7 @@ public class UsuarioService {
         return usuarioRepository.todosUsuarios();
     }
 
-    public Usuario buscarUsuarioPorId(int id) throws SQLException,IllegalArgumentException{
+    public Usuario buscarUsuarioPorId(long id) throws SQLException,IllegalArgumentException{
         Usuario user;
         user = usuarioRepository.usuarioEspecifico(id);
 

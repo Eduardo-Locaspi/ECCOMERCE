@@ -78,7 +78,7 @@ public class UsuarioRepository {
             pst.setString(1,user.getNm_usuario());
             pst.setString(2, user.getCpf_usuario());
             pst.setString(3,String.valueOf(user.getSx_usuario()));
-            pst.setDate(3,java.sql.Date.valueOf(user.getDt_nascimento_usuario()));
+            pst.setDate(4,java.sql.Date.valueOf(user.getDt_nascimento_usuario()));
 
         linhasAfetadas= pst.executeUpdate();
     }
@@ -94,7 +94,7 @@ public class UsuarioRepository {
             pst.setString(1,user.getNm_usuario());
             pst.setString(2, user.getCpf_usuario());
             pst.setString(3,String.valueOf(user.getSx_usuario()));
-            pst.setDate(3,java.sql.Date.valueOf(user.getDt_nascimento_usuario()));
+            pst.setDate(4,java.sql.Date.valueOf(user.getDt_nascimento_usuario()));
 
             pst.setLong(5,user.getId_usuario());
 
@@ -105,7 +105,7 @@ public class UsuarioRepository {
 
     // DELETE ( deletar um usuario por id)
     public boolean deletarUsuario (int id)throws SQLException{
-        sql= "DELETE FROM T_ECCOMERCE_CONTA_USUARIO WHERE id=?";
+        sql= "DELETE FROM T_ECCOMERCE_CONTA_USUARIO WHERE id_usuario=?";
         int linhasAfetadas;
 
         try(Connection con = dataSource.getConnection();PreparedStatement pst = con.prepareStatement(sql)){
